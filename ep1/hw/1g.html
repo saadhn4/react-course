@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>1g</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- these 2 script elements load the react external library -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <!-- SSDs external library -->
+    <script src="https://unpkg.com/supersimpledev@8.5.0/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      const date = console.log(dayjs().format("MMMM D"));
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(date);
+    </script>
+  </body>
+</html>
