@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>1e</title>
+    <title>1f</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -11,12 +11,22 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      const socksPrice = 10;
-      const shirtsPrice = 8 * 2;
-      const productsCost = socksPrice + shirtsPrice;
-      const paragraph = <p>Product cost: ${productsCost}</p>;
+      const socks = 10;
+      const bothShirts = 8 * 2;
+      const productCost = socks + bothShirts;
+      const shippingCost = 5;
+
+      const div = (
+        <div>
+          <p>Product cost: ${productCost}</p>
+          <p>Shipping cost: ${shippingCost}</p>
+          <p>Total cost: ${shippingCost + productCost}</p>
+          <button>Add to Cart</button>
+        </div>
+      );
+
       const container = document.querySelector(".js-container");
-      ReactDOM.createRoot(container).render(paragraph);
+      ReactDOM.createRoot(container).render(div);
     </script>
   </body>
 </html>

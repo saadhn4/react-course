@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>1c</title>
+    <title>1j</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -9,15 +9,17 @@
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
+    <script src="https://unpkg.com/supersimpledev@8.6.2/dayjs.js"></script>
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      const div = <div>
-        <p>Cotton socks</p>
-        <p>Price: $10</p>
-        <button>Add to Cart</button>
-        </div>;
       const container = document.querySelector(".js-container");
-      ReactDOM.createRoot(container).render(div);
+      const root = ReactDOM.createRoot(container);
+      setInterval(() => {
+        const currentTime = dayjs().format("HH:mm:ss");
+        const display = <p>Current time: {currentTime}</p>;
+        root.render(display);
+      }, 1000);
     </script>
   </body>
 </html>

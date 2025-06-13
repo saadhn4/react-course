@@ -8,14 +8,15 @@
     <!-- these 2 script elements load the react external library -->
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-    <!-- SSDs external library -->
-    <script src="https://unpkg.com/supersimpledev@8.5.0/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.2/dayjs.js"></script>
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      const date = dayjs().format("MMMM D");
-      const paragraph = <p>Today is {date}</p>;
+      const currentDate = dayjs().format('MMMM D')
+      const display = <p>Today is {currentDate}</p>;
       const container = document.querySelector(".js-container");
-      ReactDOM.createRoot(container).render(paragraph);
+      ReactDOM.createRoot(container).render(display);
     </script>
   </body>
 </html>

@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>1j</title>
+    <title>1d</title>
   </head>
   <body>
     <div class="js-container"></div>
     <!-- these 2 script elements load the react external library -->
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-    <!-- SSDs external library -->
-    <script src="https://unpkg.com/supersimpledev@8.5.0/dayjs.js"></script>
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
+      const socks = 10;
+      const bothShirts = 8 * 2;
+      const productCost = console.log(socks + bothShirts);
+
       const container = document.querySelector(".js-container");
-      const root = ReactDOM.createRoot(container);
-      setInterval(() => {
-        const timer = <p>Time is: {dayjs().format("HH:mm:ss")}</p>;
-        root.render(timer);
-      }, 1000);
+      ReactDOM.createRoot(container).render(productCost);
     </script>
   </body>
 </html>
