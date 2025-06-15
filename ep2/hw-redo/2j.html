@@ -18,10 +18,11 @@
             <p>{name}</p>
             {discount ? (
               <>
-                <p>Price: ${price}</p>
                 <p>
-                  <del>Discount price: ${discount}</del>
+                  {" "}
+                  <del>Price: ${price}</del>
                 </p>
+                <p>Discount price: ${discount}</p>
               </>
             ) : (
               <p>Price: ${price}</p>
