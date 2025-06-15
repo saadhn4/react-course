@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>2f</title>
+    <title>2g</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -11,12 +11,22 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
+      function ProductDetails({ name, price, discount }) {
+        return (
+          <>
+            <p>{name}</p>
+            <p>Price: ${price}</p>
+            {discount && <p>Discount price: ${discount}</p>}
+            <button>Add to Cart</button>
+          </>
+        );
+      }
       function App() {
         return (
           <>
-            <p>Cotton socks</p>
-            <p>Price: $10.90</p>
-            <button>Add to Cart</button>
+            <ProductDetails name="Cotton socks" price="10.90" discount="5.45" />
+            <ProductDetails name="Tennis ball" price="6.00" />
+            <ProductDetails name="Plain T-shirt" price="7.99" />
           </>
         );
       }
