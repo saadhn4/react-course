@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3h</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- these 2 script elements load the react external library -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [inputText, setInputText] = React.useState("");
+        function handleChange(e) {
+          setInputText(e.target.value);
+        }
+        function resetInput() {
+          setInputText("");
+        }
+        function exampleInput() {
+          setInputText("Alice");
+        }
+        return (
+          <>
+            <input
+              type="text"
+              placeholder="Type name here"
+              onChange={handleChange}
+              value={inputText}
+            />
+            <button onClick={resetInput}>Reset</button>
+            <button onClick={exampleInput}>Example</button>
+            <p>Hello {inputText}</p>
+          </>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

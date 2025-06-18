@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3f</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- these 2 script elements load the react external library -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function Counter({ count, setCount, updateCount }) {
+        return (
+          <>
+            <button onClick={updateCount}>
+              Clicked {count} {count === 1 ? "time" : "times"}
+            </button>
+          </>
+        );
+      }
+      function App() {
+        const [count, setCount] = React.useState(0);
+        function updateCount() {
+          setCount(count + 1);
+        }
+        function resetCount() {
+          setCount(0);
+        }
+        return (
+          <>
+            <Counter
+              count={count}
+              setCount={setCount}
+              updateCount={updateCount}
+            />
+            <Counter
+              count={count}
+              setCount={setCount}
+              updateCount={updateCount}
+            />
+            <button onClick={resetCount}>Reset</button>
+          </>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
