@@ -1,0 +1,30 @@
+//ep 3
+
+1. We have an initial array which containst 4 objects with keys as the message and the sender
+
+2. Were mapping through this array and returning the chat ChatMessage component in it (the one which has the sender === 'user' && img ), and were passing the props sender and message [now we get this from the array of objects that we mapped]
+
+3. store this entire mapping process in an array and then in our App component we use {variable}
+
+4. OR now its  more easier, instead of storing it in a variable we directly put the whole map process in curly braces (replacing the variable) inside App component
+
+5. To make our code cleaner we created a new component called ChatMessages and cut pasted the array we created and the mapping process here 
+note- when were mapping we have to return it sepearately! Now just call the ChatMessages component into App
+
+6. State - Data that is connected to the HTML.
+When we update this data, it will update the HTML
+
+In React we do not update the data directly, thats why eventho we pushed a new object into the ChatMessages array it didnt display in our html
+
+We do not modify the data directly, we create a copy. and then modify the copy. (Use spread operator), basically were spreading values from one array to another array [...array, newObject]
+
+7. event.target gives us the element that were typing in, in this case the chat input box
+
+We use state to save data that changes over time, like what we type in the input box
+
+8. We have a problem now we want to access chatMessages array and setChatMessages updater function in ChatInput but we dont have access to it. (Since the array is only in ChatMessages). So what we do here is bring the state of ChatMessages into App itself and then pass them as props to both ChatInput and ChatMessages so they both can freely access it 
+
+9. The value prop in the input allows us to change the text inside <input /> [basically were doing this so we can make the textbox empty]
+
+10. To get a response from the robot were using an external library
+
