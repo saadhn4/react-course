@@ -28,3 +28,17 @@ We use state to save data that changes over time, like what we type in the input
 
 10. To get a response from the robot were using an external library
 
+//ep 5
+
+1. mostly css based lesson
+
+2. were using useEffect to automatically scroll to the bottom when we send a message to the chatbot
+
+3. useEffect runs some code after the component is created or updated
+
+4. Were using useRef because whenever the chat-messages-container gets a new message we want to scroll to the bottom and were doing this inside a useEffect (cuz we only want this to happen when the component is updated)
+
+5. first initialize useRef as null and store it in a variable, then give the element a ref property w the variable name
+
+6. Now inside useRef if we clg (chatMessagesRef.cureent) [chatMessagesRef is the variable name] we can see the div container of the chat messages html element
+
