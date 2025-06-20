@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>4e</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .input-field {
+        padding: 8px 15px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border-width: 1px;
+      }
+
+      .btn {
+        background-color: #1877f2;
+        border: none;
+        color: white;
+        padding: 12px 15px;
+        margin-right: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .show-btn {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- these 2 script elements load the react external library -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function Button({ text }) {
+        return <button className="btn">{text}</button>;
+      }
+
+      function App() {
+        const [showPassword, setShowPassword] = React.useState(true);
+
+        function userPassPreference() {
+          setShowPassword(!showPassword);
+        }
+
+        return (
+          <div>
+            <h2>Hello, welcome to my website</h2>
+            <input className="input-field" type="text" placeholder="Email" />
+            <div>
+              <input
+                className="input-field"
+                type={showPassword ? "password" : "text"}
+                placeholder="Password"
+              />
+              <button className="show-btn" onClick={userPassPreference}>
+                {showPassword ? "Show" : "Hide"}
+              </button>
+            </div>
+            <div>
+              <Button text="Login" />
+              <Button text="Signup" />
+            </div>
+          </div>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

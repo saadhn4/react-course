@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>4c</title>
+    <style>
+      .btn {
+        background-color: rgb(25, 135, 84);
+        color: white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 18px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .red-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 18px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- these 2 script elements load the react external library -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [isButtonOn, setIsButtonOn] = React.useState(true);
+        function updateBtnText() {
+          setIsButtonOn(!isButtonOn);
+        }
+        return (
+          <button
+            onClick={updateBtnText}
+            className={isButtonOn ? "btn" : "red-btn"}
+          >
+            {isButtonOn ? "ON" : "OFF"}
+          </button>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

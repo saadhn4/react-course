@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>4d</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .input-field {
+        padding: 8px 15px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border-width: 1px;
+      }
+
+      .btn {
+        background-color: #1877F2;
+        border: none;
+        color: white;
+        padding: 12px 15px;
+        margin-right: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- these 2 script elements load the react external library -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function InputField({ placeholder }) {
+        return (
+          <div>
+            <input
+              className="input-field"
+              type="text"
+              placeholder={placeholder}
+            />
+          </div>
+        );
+      }
+
+      function Button({ text }) {
+        return <button className="btn">{text}</button>;
+      }
+
+      function App() {
+        return (
+          <div>
+            <h2>Hello, welcome to my website</h2>
+            <InputField placeholder="Email" />
+            <InputField placeholder="Password" />
+            <Button text="Login" />
+            <Button text="Signup" />
+          </div>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
