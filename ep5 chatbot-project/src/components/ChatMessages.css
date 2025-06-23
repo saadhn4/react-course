@@ -1,0 +1,8 @@
+.chat-messages-container {
+  flex-grow: 1;
+  margin-top: 20px;
+  overflow: scroll;
+  /* these 2 remove scrollbars from side and bottom */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
