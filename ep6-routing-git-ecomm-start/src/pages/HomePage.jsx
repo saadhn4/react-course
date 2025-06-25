@@ -1,9 +1,11 @@
 import "./HomePage.css";
 import Header from "../components/Header";
+import checkMark from "../assets/images/icons/checkmark.png";
 
 const HomePage = () => {
   return (
     <>
+      <link rel="icon" href="home-favicon.png" />
       <title>Ecommerce Project</title>
       <Header />
       <div className="home-page">
@@ -48,7 +50,7 @@ const HomePage = () => {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkMark} />
               Added
             </div>
 
@@ -97,7 +99,7 @@ const HomePage = () => {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkMark} />
               Added
             </div>
 
@@ -146,7 +148,7 @@ const HomePage = () => {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkMark} />
               Added
             </div>
 
