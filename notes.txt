@@ -42,3 +42,76 @@ We use state to save data that changes over time, like what we type in the input
 
 6. Now inside useRef if we clg (chatMessagesRef.cureent) [chatMessagesRef is the variable name] we can see the div container of the chat messages html element
 
+//ep7 
+
+- Generating HTML using React:
+
+1. Save the data in our JavaScript (products.js from starting-code > data)
+2. Use this data to generate the HTML
+
+[
+Why product.rating.stars * 10?
+Your rating images are named like this in your /images/ratings/ folder:
+
+rating-40.png → for 4.0 stars
+
+rating-45.png → for 4.5 stars
+
+rating-50.png → for 5.0 stars
+
+But product.rating.stars is a float (e.g. 4.5, 4.0, 5.0), and filenames can’t have decimal points in them.
+So multiplying by 10 turns:
+
+4.5 → 45
+
+4.0 → 40
+
+5.0 → 50
+
+This makes it match the image filename.
+]
+
+3. For products like socks, its showing 10.9 but we want to show 10.90, to fix this ->
+(product.priceCents / 100).toFixed(2)
+
+4. Data fetching -> Getting data from our backend
+
+5. the url .api/cart-items gives us the cart data
+
+6. Calculating the total quantity of the cart:
+- First we fetch the whole cart from the backend (array of items in our cart; Each object in the array has its id, productId, quantity etc)
+
+- We save this in the state of Cart
+
+- Remember the header has the 3 at the top which is the total no of items in the cart, we need to pass that dynamically as props to the header
+
+-  let totalQuantity = 0;
+  cart.forEach((item) => {
+    totalQuantity += item.quantity;
+  });
+
+  This code is giving us the total items we have in our cart; Just use totalQuantity then
+
+7. Shortcut so we dont have to type localhost:3000 always 
+
+-> Open vite.config.js
+-> after the plugins key, server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000'
+      }
+    }
+  }
+
+8. We want the cart state to be shared between the home page and the cart page, so well be lifting the state up in App.jsx and then passing them as props
+
+9. In our checkout page we also want the name of the products in the card; but the cart array does not have it. 
+So here we went back to App.jsx and added a query parameter in the useEffect ?expand=product
+
+A query param lets us add additional info to our request, so when the backend receives this param, its gonna expand the cart with product details
+
+10. Back to our CheckoutPage.jsx we now got the detaails we need aka the name img price etc 
+For the price, we need to reuse the same code we did in HomePage.jsx so in src we made a utils folder > money.js
+inside here is a function to format money, we reuse it in HomePage and CheckoutPage
+
+
