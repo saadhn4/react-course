@@ -114,4 +114,52 @@ A query param lets us add additional info to our request, so when the backend re
 For the price, we need to reuse the same code we did in HomePage.jsx so in src we made a utils folder > money.js
 inside here is a function to format money, we reuse it in HomePage and CheckoutPage
 
+11. Now we created a state for deliveryOptios to fetch it from the backend
+/api/delivery-options also supports a query param for expand=estimatedDeliveryTime
+Each delivery option has the number of days it takes to deliver and the price
+
+We mapped deliveryOptions state set an id and now we need to dynamically generate the date 
+With our expand query param we got a estimatedDeliveryTimeMs:19282298... in our array of object. How do we display this as a date? we use dayjs!
+
+we gave day js our estimatedDeliveryTime from the array we mapped (it is one of the keys) and formatted in a way which shows us the day of the week, Month and date (Monday, July 7)
+
+Now we need to show either free shipping / {price} - shipping
+
+In our map, we create a variable called priceString and gave it a default value of Free shipping 
+Here isnide an if deliveryOption.priceCents is > 0 , then well have to overwrite the free shipping with this 
+priceString = `${formatMoney(deliveryOption.priceCents)} - Shipping`
+
+We are changing the name of the input radio here because we want each product to be able to choose a delivery option. If all radio inputs had the same name, then all the products will only have 1 delivery option.
+(Each group is tied to the cartItems's productId so the user can choose 1 delivery option per product.)
+hence name=delivery-option-cartItem.productId
+
+For the checked= {deliveryOption.id=== cartItem.deliveryOptionId}"Check this radio button only if this option is the one the user selected for this product."
+
+The delivery date at the top is determined by whatever option we chose
+
+so inside cartItem map were creating a variable for the selected delivery option
+
+❓ Why check deliveryOptions.length > 0?
+Because when the component first loads:
+
+deliveryOptions is an empty array ([])
+
+The data hasn't been fetched from the server yet
+
+You don’t want to call .find() or use deliveryOption.estimatedDeliveryTimeMs on undefined
+
+Generating the HTML for the payment summary:
+create a state for payment summary set it as null (for object)
+
+its pretty easy just axios and setPaymentSummary ; and replace the information with formatMoney and give it the relavant objects property
+
+since its null we use && 
+
+10. Now were working on the orders page 
+
+- First we need to share the cart with the orders page ; cuz the header needs the total items in the cart rememver we did the whole totalQuantity thing
+
+- Creating a state for orders to get it from the backend
+
+
 
