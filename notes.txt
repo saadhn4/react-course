@@ -161,5 +161,37 @@ since its null we use &&
 
 - Creating a state for orders to get it from the backend
 
+//Ep 8 (f that tracking page)
+
+1. Working with add to cart button in Home page 
+- In add to cart btn we set an OnClick and make a post request to api/cart-items and give it an object of productId (product.id) and its quantity [for starters we used 1]
+
+Click on add to cart for any of the products and after reloading the page, i can see theres a new item in the cart. 
+But we need this wout reloading
+
+In our App.jsx we cut the whole function where we were fetching the cart items outside of the useEffect so we can still share it with other components. Note - The useEffect still has the function being called
+
+So do prop drilling and give ProductsGrid the fn and then call the function after the post request
+
+Rem tho axios returns a promise so we have to make it an async function and add await. This also means load cart will also have await before it
+
+2. Now we need to make the dropdowns work so we can select the quantity of the product were adding. We do this with a controlled input
+
+Create a state for quantity with initial state 1
+
+give the select value of quantity and an Onchange with an event set the quantity
+
+However now we have a problem when we select 1 quantity for any product, it changes all products to same quantity 
+
+This is because the state is outside of the loop, so it is shared by all products. Place it in ht eloop
+
+However this breaks the rules of React, cuz state shld always be at top 
+
+To fix this, each product can be its own component aka Product.jsx
+
+3. Now were actually making changes to the delivery option, so we can select a different option.
+
+In deliveryOptions.jsx we set an onClick to the entire div bc if we only put it on the input then well need to click on the radio itself, clicking on the text means nothing would happen
+
 
 
